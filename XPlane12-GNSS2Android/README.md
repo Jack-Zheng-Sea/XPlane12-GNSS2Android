@@ -4,8 +4,8 @@
 
 本工程参考并移植自同目录下的两个项目：
 
-- `MSFS-SimGPStoAndroid-main` —— 提供“读取游戏数据 → UDP 推送到安卓 → 安卓注入模拟定位”的整套方法与**网络协议**（Android 端协议解析、平滑插值、悬浮窗全部沿用）。
-- `XPlaneConnect-1.2.1` —— 提供 X-Plane 插件运行机制、底层 SDK（XPLM）头文件与导入库，以及 dataref 读写范例。
+- [`MSFS-SimGPStoAndroid-main`](https://github.com/JinShichang/MSFS-SimGPStoAndroid/tree/main) —— 提供“读取游戏数据 → UDP 推送到安卓 → 安卓注入模拟定位”的整套方法与**网络协议**（Android 端协议解析、平滑插值、悬浮窗全部沿用）。
+- [`XPlaneConnect-1.2.1`](https://github.com/nasa/XPlaneConnect) —— 提供 X-Plane 插件运行机制、底层 SDK（XPLM）头文件与导入库，以及 dataref 读写范例。
 
 与 MSFS 版的对应关系：
 
@@ -15,7 +15,8 @@
 | `main.cpp` 中的 UDP 服务端（HELLO / PONG / HEARTBEAT / 数据帧） | `src/GpsUdpServer.cpp`（协议逐字节兼容） |
 | SimConnect 数据定义（经纬度/高度/航向/俯仰/横滚/地速/空速） | `src/XP12GNSS.cpp` 中的 X-Plane dataref 映射 |
 
-> 网络协议与 `MSFS-SimGPStoAndroid` 完全一致，因此该项目的 **Android APK 无需任何改动**即可直接连接本插件。
+> 网络协议与 `MSFS-SimGPStoAndroid` 完全一致，因此该项目的 **Android APK 无需任何改动**即可直接连接本插件，即使用[`MSFS-SimGPStoAndroid-main`](https://github.com/JinShichang/MSFS-SimGPStoAndroid/tree/main)中提供的APK。  
+> 在此感谢 `MSFS-SimGPStoAndroid-main` 项目及其开发者 **JinShichang** ！
 
 ---
 
@@ -119,7 +120,8 @@ cmake --build build
 2. 启动 X-Plane 12，插件会自动开始监听 UDP 端口（默认 **36666**），并在 `Log.txt` 中写入 `XP12-GNSS2Android: UDP server listening on port 36666`。
 3. 手机上安装 `MSFS-SimGPStoAndroid` 的 APK，在 系统设置 → 开发者选项 → 选择模拟位置信息应用 中选中它。
 4. 手机 App 填写电脑的局域网 IP 与端口 36666，连接成功即开始注入模拟定位。
-5. 打开高德/谷歌地图即可看到飞机实时位置。
+5. 打开手机的定位服务。
+6. 打开高德/谷歌地图等地图软件即可看到飞机实时位置。
 
 > 首次使用请允许 Windows 防火墙放行 UDP 36666（或插件所在进程）。
 
@@ -157,3 +159,10 @@ cmake --build build
 
 - 插件逻辑参照 `MSFS-SimGPStoAndroid-main`（CC BY-NC-SA 4.0），**不得用于商业用途**。
 - `SDK/` 内的 X-Plane 插件 SDK 版权归 Sandy Barbour / Ben Supnik / Laminar Research，见 `SDK/license.txt`。
+
+---
+
+### 注释
+
+- X-Plane 12 及其系列产品与本项目无关，本项目无关该游戏本体的分发，也没有相应的授权。请到官方游戏平台下载该游戏本体。
+- 本项目代码及该README中使用了一定的人工智能（AI）。
