@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="XP12GNSS.vcxproj" Id="4f3c7a2e-8b1d-4a5c-9e6f-2d0a11b3c5e7" />
+</Solution>

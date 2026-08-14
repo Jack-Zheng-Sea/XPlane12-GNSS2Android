@@ -1,0 +1,26 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{89D398A5-9C7E-4F35-A0AA-D809FF83D1C4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{6E1B0A41-4E5A-4B2D-8F6A-3C1F0B9D4A2E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\XP12GNSS.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GpsUdpServer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\XP12GNSS.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GpsUdpServer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
